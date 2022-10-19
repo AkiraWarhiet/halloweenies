@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    if (empty($_SESSION['theCart'])) { 
+        $_SESSION['theCart'] = array(); 
+    }
+
+    include("data/dataFunctions.php");
+
+    $products = getProducts();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
