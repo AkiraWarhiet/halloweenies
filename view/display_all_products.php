@@ -14,10 +14,32 @@
             <h4> $item[3] </h4>
             <p> $item[2] </p>
             <img class='itemIcon' src='data/Images/$item[4]'>
+            <a href='?id=$item[0]'> View </a>
             <hr>
         </div>
         ");
     }
+
+    ?>
+    <!-- <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+
+        </div>
+    </div> -->
+
+    <?php
 
     // Start Of The Select Boxes With The Item Names
     echo("<select name='productkey'>");
@@ -30,7 +52,7 @@
         </option>");
     }
     // This Closes The Select and Adds Our Hidden Input and Starts The Next Select
-    echo("</select> <br> <input type='hidden' name='action' value='add'>  <select name='itemqty'>");
+    echo("</select> <br> <input type='hidden' name='action' value='showProducts'>  <select name='itemqty'>");
 
     // Give The Option to buy Up too 10 of the product
     for($i = 1; $i <= 10; $i++) {

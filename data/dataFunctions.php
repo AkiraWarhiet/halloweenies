@@ -29,4 +29,13 @@
         $products = $qry->fetchAll();
         return $products;
     }
+
+    function getProduct($productID) {
+        $products = getProducts();
+        foreach($products as $product) {
+            if ($productID == $product[0]) {
+                return $product;
+            }
+        }
+    }
    ?>
