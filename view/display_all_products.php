@@ -2,6 +2,19 @@
 <?php
 //Product Id,Product name, Product Dsc, Product Price, Product Image
     // Header At The Top
+    ?>
+        <form action="" method="POST">
+            <input type='hidden' name='action' value='showProductsA'> 
+            <input type='submit' value='Sort Alphabetical'>
+        </form>
+
+        <form action="" method="POST">
+            <input type='hidden' name='action' value='showProducts'> 
+            <input type='submit' value='Sort Normally'>
+        </form>
+
+
+    <?php
     echo("<h2> Our Products");
 
     //For Every Item In Our Database
@@ -11,8 +24,8 @@
         echo("
         <div class='itemHolder'>
             <h3> $item[1] <h3>
-            <h4> $item[3] </h4>
-            <p> $item[2] </p>
+            <h4> $item[2] </h4>
+            <p> $item[3] </p>
             <img class='itemIcon' src='data/Images/$item[4]'>
             <a href='?id=$item[0]'> View </a>
             <hr>
@@ -42,22 +55,5 @@
     <?php
 
     // Start Of The Select Boxes With The Item Names
-    echo("<select name='productkey'>");
-
-    // For Every Product In The Datbase
-    foreach($products as $item) {
-        // Supply An Option
-        echo("<option value='$item[0]'>
-              $item[1]
-        </option>");
-    }
-    // This Closes The Select and Adds Our Hidden Input and Starts The Next Select
-    echo("</select> <br> <input type='hidden' name='action' value='showProducts'>  <select name='itemqty'>");
-
-    // Give The Option to buy Up too 10 of the product
-    for($i = 1; $i <= 10; $i++) {
-        echo("<option value='$i'}?> $i </option> ");
-    }
-    // End The Select and Create The Submit Buton
-    echo("</select><br> <input type='submit' value='showCart'>");
+    echo("<form action='' method='POST'> <input type='hidden' name='action' value='displayCart'> <br> <input type='submit' value='Show Cart'></form>");
 ?>

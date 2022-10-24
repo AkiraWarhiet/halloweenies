@@ -38,4 +38,22 @@
             }
         }
     }
+
+    function addProduct($qty, $id) {
+        $_SESSION['theCart'][$id] += $qty;
+    }
+
+    function getSubtotal($qty, $price) {
+        return $qty * $price;
+    }
+
+    function getTotal($subtotals) {
+
+        $total = 0;
+        foreach($subtotals as $subtotal) {
+            $total += $subtotal;
+        }
+
+        return $total;
+    }
    ?>

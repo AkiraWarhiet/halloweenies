@@ -6,6 +6,8 @@
 
 
 <div id="container">
+    <a href="?action=showProducts"> See All Products </a>
+
     <h3> <?php echo($product[1]); ?> </h3>
     <h2> <?php echo($product[3]); ?> </h2>
     <p> <?php echo($product[2]); ?> </p>

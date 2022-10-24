@@ -1,13 +1,22 @@
 <?php
     session_start();
-
-    if (empty($_SESSION['theCart'])) { 
-        $_SESSION['theCart'] = array(); 
-    }
+    $action = filter_input(INPUT_POST, 'action');
 
     include("data/dataFunctions.php");
 
-    $products = getProducts();
+    if ($action == "showProductsA") {
+        $products = getProductsAlphabetical();
+    }
+    else {
+        $products = getProducts();
+    }
+
+    if (empty($_SESSION['theCart'])) { 
+        $_SESSION['theCart'] = array();
+        foreach($products as $product) {
+            $_SESSION['theCart'][$product[0]] = 0;
+        }
+    }
 ?>
 
 
@@ -33,11 +42,21 @@
     
 <?php
 $id = filter_input(INPUT_GET, 'id');
-$action = filter_input(INPUT_POST, 'action');
-
 switch($action) {
-    case "showProducts": 
-        include("view/display_all_products.php");
+    case 'add':
+        $id = filter_input(INPUT_POST, 'productkey');
+        $qty = filter_input(INPUT_POST, 'itemqty');
+        addProduct($qty, $id);
+        include("view/display_cart.php");
+        break;
+    case 'clear':
+        foreach($products as $product) {
+            $_SESSION['theCart'][$product[0]] = 0;
+        }
+        include("view/display_cart.php");
+        break;
+    case "displayCart": 
+        include("view/display_cart.php");
         break;
     default:
         if ($id) {
