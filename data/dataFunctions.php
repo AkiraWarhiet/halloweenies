@@ -14,6 +14,14 @@
          
     }
 
+    function getProductsAlphabetical() {
+        $myQuery = "Select * from Products ORDER BY ProductName";
+        global $db;
+        $qry = $db->query($myQuery);       
+        $products = $qry->fetchAll();
+        return $products;
+    }
+
     function getProducts() {
         $myQuery = "Select * from Products";
         global $db;
@@ -21,5 +29,4 @@
         $products = $qry->fetchAll();
         return $products;
     }
-
    ?>
