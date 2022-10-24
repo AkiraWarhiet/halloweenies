@@ -3,6 +3,7 @@
 //Product Id,Product name, Product Dsc, Product Price, Product Image
     // Header At The Top
     ?>
+        <!-- Allows you to pick a sorting type -->
         <form action="" method="POST">
             <input type='hidden' name='action' value='showProductsA'> 
             <input type='submit' value='Sort Alphabetical'>
@@ -15,6 +16,7 @@
 
 
     <?php
+    // Echo header 
     echo("<h2> Our Products");
 
     //For Every Item In Our Database
@@ -34,23 +36,6 @@
     }
 
     ?>
-    <!-- <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-            </div>
-
-        </div>
-    </div> -->
 
     <?php
 

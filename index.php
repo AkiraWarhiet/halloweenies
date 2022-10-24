@@ -1,16 +1,33 @@
 <?php
+    /* Developers:Charlie Barnhart
+                  Chloe Gertner
+
+    */
+
+
+
+
+
+    // Start the session 
     session_start();
+
+    // Define action ahead of time so we can decide what to do when we display the page
     $action = filter_input(INPUT_POST, 'action');
 
+    // Include all of the data functions
     include("data/dataFunctions.php");
 
+    // If show products is alphabetical, Call the querty that orders it
     if ($action == "showProductsA") {
         $products = getProductsAlphabetical();
     }
+
+    // Order it by ID number
     else {
         $products = getProducts();
     }
 
+    // If the session is empty, pre define it as an array so we don't have an angry console
     if (empty($_SESSION['theCart'])) { 
         $_SESSION['theCart'] = array();
         foreach($products as $product) {
@@ -23,45 +40,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Fun Format Stuff -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Halloweenies</title>
 
 </head>
 <body>
     
 <?php
+// Defining ID so we can do individual displays
 $id = filter_input(INPUT_GET, 'id');
+
+// Switch case > if statement
 switch($action) {
+    // Case Add is for addng and item in cart
     case 'add':
+        // Defining ID and QTY with Post
         $id = filter_input(INPUT_POST, 'productkey');
         $qty = filter_input(INPUT_POST, 'itemqty');
+
+        // Call our add product function
         addProduct($qty, $id);
+
+        // Display the cart
         include("view/display_cart.php");
         break;
+    // Case clear is for clearing the cart
     case 'clear':
         foreach($products as $product) {
             $_SESSION['theCart'][$product[0]] = 0;
         }
         include("view/display_cart.php");
         break;
+    // This dsplays the cart
     case "displayCart": 
         include("view/display_cart.php");
         break;
+    // This is what does the indiviaul views of the items
     default:
+        // If ID is set, go ahead and display the indivudal's page
         if ($id) {
             include("view/display_product.php");
         }
+        // If ID isn't set, then go ahead and re load the display all products page
         else {
             include("view/display_all_products.php");
         }

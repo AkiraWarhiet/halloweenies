@@ -1,11 +1,14 @@
 <?php 
 
-
+    // Logging into the database
     $dsn = "mysql:host=localhost;dbname=HalloweenItems";
     $username = "root";
+
+    // Don't steal my password ;)
     $password = "";
 
 
+    // Try to connect
     try {
         $db = new PDO($dsn, $username, $password);
         //echo("connected");
@@ -14,10 +17,13 @@
          
     }
 
+    // Get the products by sortng them
     function getProductsAlphabetical() {
+        // My query
         $myQuery = "Select * from Products ORDER BY ProductName";
         global $db;
-        $qry = $db->query($myQuery);       
+        $qry = $db->query($myQuery);      
+        // Get all of the products and return them
         $products = $qry->fetchAll();
         return $products;
     }
@@ -31,7 +37,10 @@
     }
 
     function getProduct($productID) {
+        // Defining products
         $products = getProducts();
+
+        // For each of hte products, find the one that's id matches
         foreach($products as $product) {
             if ($productID == $product[0]) {
                 return $product;
@@ -39,14 +48,17 @@
         }
     }
 
+    // Adding a product to the cart. Find the session ID that matches, add the quantity
     function addProduct($qty, $id) {
         $_SESSION['theCart'][$id] += $qty;
     }
 
+    // Get the subtotal by multiplying qty and price
     function getSubtotal($qty, $price) {
         return $qty * $price;
     }
 
+    // Getting the total by adding the subtotals.
     function getTotal($subtotals) {
 
         $total = 0;
