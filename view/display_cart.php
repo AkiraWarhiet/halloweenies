@@ -26,34 +26,36 @@ echo("<form method='post' action='?action=add'> <select name='productkey'>");
         <input type='hidden' name='action' value='clear'> 
         <input type='submit' value='Clear Cart'>
     </form>
-    <?php
+    <div id="Cart">
+        <?php
 
-    // Predefining subtotals as an array
-    $subtotals = array();
+        // Predefining subtotals as an array
+        $subtotals = array();
 
-    // For each cart item in the session...
-    foreach($_SESSION['theCart'] as $key => $qty) {
+        // For each cart item in the session...
+        foreach($_SESSION['theCart'] as $key => $qty) {
 
-        // Dont include the naming
-        if ($key != "theCart") {
+            // Dont include the naming
+            if ($key != "theCart") {
 
-            // Go ythrough every product until you find the matching instance and then calulate the subtotal
-            foreach($products as $product) {
-                $subtotals[$key] = getSubtotal($qty, $product[3]);
+                // Go ythrough every product until you find the matching instance and then calulate the subtotal
+                foreach($products as $product) {
+                    $subtotals[$key] = getSubtotal($qty, $product[3]);
 
-                if($key == $product[0]) {
-                    echo("<h3> ( $$product[3] )   $product[1]  x $qty </h3>");
-                    echo("<h4 class='subtotal'> Subtotal: $$subtotals[$key] </h4>");
+                    if($key == $product[0]) {
+                        echo("<div class='itemLine'> <h3 class='lineName'> ( $$product[3] )   $product[1]  x $qty </h3>");
+                        echo("<h4 class='subtotal'> Subtotal: $$subtotals[$key] </h4> </div>");
+                    }
                 }
             }
         }
-    }
 
-    // Define total by adding the subtotals
-    $total = getTotal($subtotals);
+        // Define total by adding the subtotals
+        $total = getTotal($subtotals);
 
-    // Echo total
-    echo("<h1> $$total </h1>")
+        // Echo total
+        echo("<h1> Total: $$total </h1>")
 
 
-?>
+        ?>
+    </div>

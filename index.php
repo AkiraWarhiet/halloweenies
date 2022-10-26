@@ -82,15 +82,15 @@ switch($action) {
     case "displayProducts":
         include ("view/display_all_products.php");
         break;
+    case "showProductsA":
+        include ("view/display_all_products.php");
+        break;
+    case "showProductsP":
+        include ("view/display_all_products.php");
+        break;
     default:
         // If ID is set, go ahead and display the indivudal's page
-        if ($id) {
             include("view/display_product.php");
-        }
-        // If ID isn't set, then go ahead and re load the display all products page
-        else {
-            include("view/display_all_products.php");
-        }
 
 }
 

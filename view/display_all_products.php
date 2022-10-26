@@ -16,7 +16,10 @@
             <h4> $item[2] </h4>
             <p> $item[3] </p>
             <img class='itemIcon' src='data/Images/$item[4]'>
-            <a href='?id=$item[0]'> View </a>
+            <form action='' method='POST'>
+                <input type='hidden' name='action' value='$item[0]'> 
+                <input type='submit' value='View'>
+            </form>
         </div>
         ");
     }

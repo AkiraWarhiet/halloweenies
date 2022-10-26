@@ -1,6 +1,6 @@
 
 html {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -89,4 +89,51 @@ input.linkButton {
 
 .itemIcon {
     height: 500px;
+}
+
+#individual {
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+h2 {
+    text-align: center;
+}
+
+.itemLine {
+    display: inline-block;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 2px;
+}
+
+#Cart {
+    border-style: solid;
+    border-radius: 25px;
+    border-color: lightgrey;
+    border-width: 5px;
+    margin-bottom: 30px;
+    width: 45%;
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.subtotal {
+    text-align: right;
+    position: relative; 
+    top: -45px;
+    margin-right: 30px;
+}
+
+.lineName {
+    margin-left: 30px;
+    height: 50%;
+}
+
+h1 {
+    text-align: right;
+    margin-right: 30px;
 }
