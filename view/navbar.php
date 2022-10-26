@@ -1,6 +1,6 @@
 <div id="nav">
     <?php
-        if ($action != "displayCart") {
+        if ($action != "displayCart" && !$id) {
             include "order_by.php";
         }
 

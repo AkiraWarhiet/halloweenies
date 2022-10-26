@@ -79,6 +79,9 @@ switch($action) {
         include("view/display_cart.php");
         break;
     // This is what does the indiviaul views of the items
+    case "displayProducts":
+        include ("view/display_all_products.php");
+        break;
     default:
         // If ID is set, go ahead and display the indivudal's page
         if ($id) {

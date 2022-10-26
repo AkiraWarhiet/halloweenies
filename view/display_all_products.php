@@ -17,9 +17,9 @@
             <p> $item[3] </p>
             <img class='itemIcon' src='data/Images/$item[4]'>
             <a href='?id=$item[0]'> View </a>
-            <hr>
-        </div>
         </div>
         ");
     }
+
+    echo("</div>");
 ?>
