@@ -28,8 +28,8 @@
         return $products;
     }
 
-    function getProducts() {
-        $myQuery = "Select * from Products";
+    function getProductsPrice() {
+        $myQuery = "Select * from Products ORDER BY ProductPrice";
         global $db;
         $qry = $db->query($myQuery);       
         $products = $qry->fetchAll();
@@ -38,7 +38,7 @@
 
     function getProduct($productID) {
         // Defining products
-        $products = getProducts();
+        $products = getProductsPrice();
 
         // For each of hte products, find the one that's id matches
         foreach($products as $product) {

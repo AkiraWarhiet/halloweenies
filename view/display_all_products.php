@@ -1,23 +1,10 @@
 
-<?php
-//Product Id,Product name, Product Dsc, Product Price, Product Image
-    // Header At The Top
-    ?>
         <!-- Allows you to pick a sorting type -->
-        <form action="" method="POST">
-            <input type='hidden' name='action' value='showProductsA'> 
-            <input type='submit' value='Sort Alphabetical'>
-        </form>
-
-        <form action="" method="POST">
-            <input type='hidden' name='action' value='showProducts'> 
-            <input type='submit' value='Sort Normally'>
-        </form>
-
-
     <?php
+    include "navbar.php";
     // Echo header 
-    echo("<h2> Our Products");
+
+    echo("<div id='products'> <h2> Our Products </h2>");
 
     //For Every Item In Our Database
     foreach($products as $item)
@@ -32,13 +19,7 @@
             <a href='?id=$item[0]'> View </a>
             <hr>
         </div>
+        </div>
         ");
     }
-
-    ?>
-
-    <?php
-
-    // Start Of The Select Boxes With The Item Names
-    echo("<form action='' method='POST'> <input type='hidden' name='action' value='displayCart'> <br> <input type='submit' value='Show Cart'></form>");
 ?>

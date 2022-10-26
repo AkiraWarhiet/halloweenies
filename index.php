@@ -24,7 +24,7 @@
 
     // Order it by ID number
     else {
-        $products = getProducts();
+        $products = getProductsPrice();
     }
 
     // If the session is empty, pre define it as an array so we don't have an angry console

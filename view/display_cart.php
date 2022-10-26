@@ -1,7 +1,6 @@
-<!-- A button -->
-<a href="?action=showProducts"> See All Products </a>
-
 <?php
+
+include "navbar.php";
 // This starts off the html formatting and the select statement
 echo("<form method='post' action='?action=add'> <select name='productkey'>");
 
