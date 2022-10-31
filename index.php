@@ -91,12 +91,12 @@ switch($action) {
     default:
         // If ID is set, go ahead and display the indivudal's page
             
-            if ($id) { 
-                include("view/display_product.php");
-            }
-            else {
-                include("view/display_all_products.php");
-            }
+           if (!$action) {
+             include("view/display_all_products.php");
+           }
+           else {
+            include("view/display_product.php");
+           }
 
 }
 
