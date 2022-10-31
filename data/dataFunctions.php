@@ -1,7 +1,7 @@
 <?php 
 
     // Logging into the database
-    $dsn = "mysql:host=localhost;dbname=HalloweenItems";
+    $dsn = "mysql:host=localhost;dbname=halloweenies";
     $username = "root";
 
     // Don't steal my password ;)
