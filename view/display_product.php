@@ -15,7 +15,7 @@
 
     <form action='' method='POST'> 
         <input type='hidden' name='editor' value='editItem'> 
-        <input type='hidden' name='action' value='$product[0]'> 
+        <input type='hidden' name='action' value='<?php echo("$product[0]") ?>'> 
         <br> 
         <input type='submit' value='Edit Item'>
     </form>
