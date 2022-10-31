@@ -90,7 +90,6 @@ switch($action) {
         break;
     default:
         // If ID is set, go ahead and display the indivudal's page
-            include("view/display_product.php");
             
             if ($id) { 
                 include("view/display_product.php");
