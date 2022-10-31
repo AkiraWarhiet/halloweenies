@@ -13,6 +13,7 @@
 
     // Define action ahead of time so we can decide what to do when we display the page
     $action = filter_input(INPUT_POST, 'action');
+    $editor = filter_input(INPUT_POST, 'editor');
 
     // Include all of the data functions
     include("data/dataFunctions.php");
@@ -92,10 +93,15 @@ switch($action) {
         // If ID is set, go ahead and display the indivudal's page
             
            if (!$action) {
-             include("view/display_all_products.php");
+                include("view/display_all_products.php");
            }
            else {
-            include("view/display_product.php");
+                if ($editor == "editItem") {
+                    include("view/edit_product.php");
+                }
+                else {
+                    include("view/display_product.php");
+                }
            }
 
 }
